@@ -26,41 +26,39 @@ emailjs.init("0b2kSc2NciKIIdxna");
 <h2>G-Mart Nangloi</h2>
 <p class="subtitle">Bag Repair Intake</p>
 
-<form id="repairForm" method="POST">
+<form id="repairForm">
 
 <label>Customer Name</label>
-<input type="text" name="name" required>
+<input type="text" id="name" required>
 
 <label>Phone Number</label>
-<input type="tel" name="phone" required>
+<input type="tel" id="phone" required>
 
 <label>Email</label>
-<input type="email" name="email" required>
+<input type="email" id="email" required>
 
 <label>Bag Type</label>
-<select name="bag_type">
+<select id="bag_type">
 <option>Backpack</option>
 <option>Trolley Bag</option>
 <option>Duffel Bag</option>
 </select>
 
 <label>Warranty Status</label>
-<select name="warranty">
+<select id="warranty">
 <option>Under Warranty - Free</option>
 <option>Under Warranty - Chargeable</option>
 <option>Not Purchased From Us</option>
 </select>
 
 <label>Balance Due (₹)</label>
-<input type="number" name="balance" value="0">
+<input type="number" id="balance" value="0">
 
 <label>Issue Description</label>
-<textarea name="issue" rows="3"></textarea>
+<textarea id="issue" rows="3"></textarea>
 
-<label>Upload Photos</label>
-<input type="file" name="photos" multiple>
-
-<input type="hidden" name="ticket_id" id="ticketInput">
+<label>Upload Bag Photos</label>
+<input type="file" id="photos" multiple accept="image/*">
 
 <div class="ticketBox">
 Ticket ID: <span id="ticket"></span>

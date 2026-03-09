@@ -87,7 +87,25 @@ await emailjs.send(
 "template_dr655gw",
 params
 )
+await fetch("https://script.google.com/macros/s/AKfycby0RMZJJK3BCiRVvAx48gcIQppC4dZZxzt6MfJWQiiPn1ct0VKa1yNR93OwyvGh_aQl/exec", {
 
+method: "POST",
+
+body: JSON.stringify({
+ticket_id: params.ticket_id,
+name: params.name,
+phone: params.phone,
+email: params.email,
+bag_type: params.bag_type,
+warranty: params.warranty,
+balance: params.balance,
+issue: params.issue,
+photo1: params.photo1,
+photo2: params.photo2,
+photo3: params.photo3
+})
+
+})
 
 alert("Repair ticket submitted successfully.\nTicket ID: " + ticket)
 

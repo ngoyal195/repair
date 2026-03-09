@@ -2,8 +2,10 @@
 <html>
 <head>
 
-<title>G-Mart Nangloi Repair Intake</title>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>G-Mart Nangloi Repair Intake</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -19,48 +21,53 @@ emailjs.init("0b2kSc2NciKIIdxna");
 
 <body>
 
-<h2>G-Mart Nangloi Repair Intake</h2>
+<div class="container">
+
+<h2>G-Mart Nangloi</h2>
+<p class="subtitle">Bag Repair Intake</p>
 
 <form id="repairForm">
 
 <label>Customer Name</label>
-<input type="text" id="name" required>
+<input type="text" name="name" required>
 
 <label>Phone Number</label>
-<input type="text" id="phone" required>
+<input type="tel" name="phone" required>
 
 <label>Email</label>
-<input type="email" id="email" required>
+<input type="email" name="email" required>
 
 <label>Bag Type</label>
-<select id="bagType">
+<select name="bag_type">
 <option>Backpack</option>
 <option>Trolley Bag</option>
 <option>Duffel Bag</option>
 </select>
 
 <label>Warranty Status</label>
-<select id="warranty">
+<select name="warranty">
 <option>Under Warranty - Free</option>
 <option>Under Warranty - Chargeable</option>
 <option>Not Purchased From Us</option>
 </select>
 
-<label>Balance Due ₹</label>
-<input type="number" id="balance" value="0">
+<label>Balance Due (₹)</label>
+<input type="number" name="balance" value="0">
 
 <label>Issue Description</label>
-<textarea id="issue"></textarea>
+<textarea name="issue" rows="3"></textarea>
 
-<label>Upload Bag Photos (optional)</label>
-<input type="file" id="photos" multiple>
+<label>Upload Photos</label>
+<input type="file" name="photos" multiple>
+
+<input type="hidden" name="ticket_id" id="ticketInput">
 
 <div class="ticketBox">
 Ticket ID: <span id="ticket"></span>
 </div>
 
 <p class="disclaimer">
-Customer must collect the bag within 7–15 days after repair completion.
+Customer must collect the bag within <b>7–15 days</b> after repair completion.
 After this period G-Mart Nangloi will not be responsible for the item.
 </p>
 
@@ -69,10 +76,17 @@ After this period G-Mart Nangloi will not be responsible for the item.
 </form>
 
 <footer>
-G-Mart Nangloi<br>
-Check our products at
+
+<p>G-Mart Nangloi</p>
+
+<p>
+Check our products at<br>
 <a href="https://www.travencebags.in">www.travencebags.in</a>
+</p>
+
 </footer>
+
+</div>
 
 <script src="script.js"></script>
 

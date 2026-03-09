@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>G-Mart Nangloi Repair Intake</title>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+(function(){
+emailjs.init("YOUR_PUBLIC_KEY");
+})();
+</script>
+
+</head>
+
+<body>
+
+<h2>G-Mart Nangloi Repair Intake</h2>
+
+<form id="repairForm">
+
+<label>Customer Name</label>
+<input type="text" id="name" required>
+
+<label>Phone Number</label>
+<input type="text" id="phone" required>
+
+<label>Email</label>
+<input type="email" id="email" required>
+
+<label>Bag Type</label>
+<select id="bagType">
+<option>Backpack</option>
+<option>Trolley Bag</option>
+<option>Duffel Bag</option>
+</select>
+
+<label>Warranty Status</label>
+<select id="warranty">
+<option>Under Warranty - Free</option>
+<option>Under Warranty - Chargeable</option>
+<option>Not Purchased From Us</option>
+</select>
+
+<label>Balance Due ₹</label>
+<input type="number" id="balance" value="0">
+
+<label>Issue Description</label>
+<textarea id="issue"></textarea>
+
+<label>Upload Bag Photos (optional)</label>
+<input type="file" id="photos" multiple>
+
+<div class="ticketBox">
+Ticket ID: <span id="ticket"></span>
+</div>
+
+<p class="disclaimer">
+Customer must collect the bag within 7–15 days after repair completion.
+After this period G-Mart Nangloi will not be responsible for the item.
+</p>
+
+<button type="submit">Submit Repair</button>
+
+</form>
+
+<footer>
+G-Mart Nangloi<br>
+Check our products at
+<a href="https://www.travencebags.in">www.travencebags.in</a>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

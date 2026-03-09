@@ -91,7 +91,11 @@ await fetch("https://script.google.com/macros/s/AKfycby0RMZJJK3BCiRVvAx48gcIQppC
 
 method: "POST",
 
-body: JSON.stringify({
+headers: {
+"Content-Type": "application/x-www-form-urlencoded"
+},
+
+body: new URLSearchParams({
 ticket_id: params.ticket_id,
 name: params.name,
 phone: params.phone,

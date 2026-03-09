@@ -91,6 +91,8 @@ await fetch("https://script.google.com/macros/s/AKfycby0RMZJJK3BCiRVvAx48gcIQppC
 
 method: "POST",
 
+mode: "no-cors",
+
 headers: {
 "Content-Type": "application/x-www-form-urlencoded"
 },

@@ -13,6 +13,7 @@ const sec = String(now.getSeconds()).padStart(2,'0')
 const random = Math.floor(Math.random()*900)+100
 
 return `GMN-${year}${month}${day}-${hour}${min}${sec}-${random}`
+
 }
 
 const ticket = generateTicket()
@@ -23,55 +24,88 @@ document.getElementById("repairForm").addEventListener("submit", async function(
 
 e.preventDefault()
 
+const submitBtn = document.querySelector("button[type='submit']")
+submitBtn.innerText = "Uploading Photos..."
+submitBtn.disabled = true
+
 const files = document.getElementById("photos").files
 
-let photoLinks = []
+let uploadedImages = []
+
+try{
 
 for(let file of files){
 
 const formData = new FormData()
+
 formData.append("file", file)
-formData.append("upload_preset", "YOUR_UPLOAD_PRESET")
+formData.append("upload_preset", "repair_uploads")
 
 const response = await fetch(
-"https://api.cloudinary.com/v1_1/YOUR_CLOUD_NAME/image/upload",
+"https://api.cloudinary.com/v1_1/dipiqms7v/image/upload",
 {
-method:"POST",
-body:formData
+method: "POST",
+body: formData
 })
 
 const data = await response.json()
 
-photoLinks.push(data.secure_url)
+uploadedImages.push(data.secure_url)
 
 }
+
+
+// placeholder to avoid broken email images
+const placeholder = "https://via.placeholder.com/1"
+
 
 const params = {
 
 ticket_id: ticket,
+
 name: document.getElementById("name").value,
 phone: document.getElementById("phone").value,
 email: document.getElementById("email").value,
+
 bag_type: document.getElementById("bag_type").value,
 warranty: document.getElementById("warranty").value,
+
 balance: document.getElementById("balance").value,
 issue: document.getElementById("issue").value,
-photos: photoLinks.join("\n")
+
+photo1: uploadedImages[0] || placeholder,
+photo2: uploadedImages[1] || placeholder,
+photo3: uploadedImages[2] || placeholder
 
 }
 
-emailjs.send(
+
+submitBtn.innerText = "Sending Email..."
+
+await emailjs.send(
 "service_chf6h93",
 "template_dr655gw",
 params
 )
 
-.then(function(){
 
 alert("Repair ticket submitted successfully.\nTicket ID: " + ticket)
 
 document.getElementById("repairForm").reset()
 
-})
+submitBtn.innerText = "Submit Repair Request"
+submitBtn.disabled = false
+
+
+}catch(error){
+
+console.error(error)
+
+alert("Something went wrong while submitting the repair request.")
+
+submitBtn.innerText = "Submit Repair Request"
+submitBtn.disabled = false
+
+}
 
 })

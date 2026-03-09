@@ -36,7 +36,7 @@ issue: document.getElementById("issue").value
 
 }
 
-emailjs.send("YOUR_SERVICE_ID","YOUR_TEMPLATE_ID",params)
+emailjs.send("service_chf6h93","template_dr655gw",params)
 .then(function(){
 
 alert("Repair ticket submitted successfully.\nTicket ID: " + ticket)

@@ -98,6 +98,8 @@ headers: {
 },
 
 body: new URLSearchParams({
+action: "add",
+  
 ticket_id: params.ticket_id,
 name: params.name,
 phone: params.phone,
